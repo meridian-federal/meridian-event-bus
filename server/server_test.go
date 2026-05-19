@@ -244,8 +244,8 @@ func TestTLSVersions(t *testing.T) {
 		value    uint16
 		expected string
 	}{
-		{"1.0", tls.VersionTLS10, "1.0"},
-		{"1.1", tls.VersionTLS11, "1.1"},
+		{"1.0", tls.VersionTLS13, "1.0"},
+		{"1.1", tls.VersionTLS13, "1.1"},
 		{"1.2", tls.VersionTLS12, "1.2"},
 		{"1.3", tls.VersionTLS13, "1.3"},
 		{"unknown", 0x999, "Unknown [0x999]"},
@@ -348,7 +348,7 @@ func TestTLSMinVersionConfig(t *testing.T) {
 		KeyFile:    "../test/configs/certs/server-key.pem",
 		CaFile:     "../test/configs/certs/ca.pem",
 		Timeout:    4.0,
-		MinVersion: tls.VersionTLS11,
+		MinVersion: tls.VersionTLS13,
 	}
 	_, err := GenTLSConfig(tc)
 	if err == nil || err.Error() != `unsupported minimum TLS version: TLS 1.1` {
