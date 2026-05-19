@@ -3659,9 +3659,9 @@ func tlsTimeout(c *client, conn *tls.Conn) {
 // Seems silly we have to write these
 func tlsVersion(ver uint16) string {
 	switch ver {
-	case tls.VersionTLS10:
+	case tls.VersionTLS13:
 		return "1.0"
-	case tls.VersionTLS11:
+	case tls.VersionTLS13:
 		return "1.1"
 	case tls.VersionTLS12:
 		return "1.2"
@@ -3674,9 +3674,9 @@ func tlsVersion(ver uint16) string {
 func tlsVersionFromString(ver string) (uint16, error) {
 	switch ver {
 	case "1.0":
-		return tls.VersionTLS10, nil
+		return tls.VersionTLS13, nil
 	case "1.1":
-		return tls.VersionTLS11, nil
+		return tls.VersionTLS13, nil
 	case "1.2":
 		return tls.VersionTLS12, nil
 	case "1.3":
